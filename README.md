@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/zachwang1992/UI_testing.svg?branch=master)](https://travis-ci.com/zachwang1992/UI_testing)
 # Bynder UI Testing Assignment
 ## Description
 The app tests login feature in the page https://wave-trial.getbynder.com/login/
@@ -27,7 +28,7 @@ The app tests login feature in the page https://wave-trial.getbynder.com/login/
 - User can update password by clicking lost password link (passed)
 
 ## Running the test
-### Prerequites
+### Prerequisites
 in linux system  
 docker is installed
 
@@ -35,5 +36,5 @@ docker is installed
 - $ sudo docker build -t ui_test .
 - $ sudo docker run -v "$PWD":/report/ ui_test
 
-All the commands should be executed in the root directory of the repo. A html test report is generated for the testing. The repo is
-also added to Travis CI and is test is executed automatically.
+The commands should be executed in the root directory of the repo. A html test report report.html is generated after the
+test execution. The repo is also added to Travis CI and so the test is executed automatically.
