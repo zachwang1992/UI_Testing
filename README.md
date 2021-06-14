@@ -27,6 +27,8 @@ The app tests login feature in the page https://wave-trial.getbynder.com/login/
 - User is still on login page by clicking back button in browser after logging out to login page (passed)
 - User can update password by clicking lost password link (passed)
 
+Test Scenarios are also described in Gherkin in test_scenarios/login.feature.
+
 ## Running the test
 ### Prerequisites
 in linux system  
