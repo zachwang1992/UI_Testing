@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.com/zachwang1992/UI_testing.svg?branch=master)](https://travis-ci.com/zachwang1992/UI_testing)
 # Bynder UI Testing Assignment
+## Update 2021-06-27
+- Two new test scenarios and functions are added  
+&ensp; User can log in successfully with valid email in upper case and valid password (passed)  
+&ensp; User can not log in with valid email and password in upper case (passed)
+- some careless mistakes are fixed
+
 ## Description
 The app tests login feature in the page https://wave-trial.getbynder.com/login/
 

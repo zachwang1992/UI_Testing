@@ -193,3 +193,40 @@ class TestLoginFeature:
         logger.info('in forget password page...')
         assert forget_password_page.email_field.is_displayed()
         assert forget_password_page.send_instructions_button.is_enabled()
+
+    def test_login_successfully_with_email_in_upper_case(self, browser):
+        """
+        The function tests that a user can log in successfully using valid username changed to upper case and valid
+        password.
+        :param browser: fixture
+        :return: None
+        """
+        login_page = LoginPage(browser)
+        logger.info('filling username in upper case and password...')
+        login_page.fill_email_and_password(AccountCredentials.EMAIL.upper(), AccountCredentials.PASSWORD)
+        logger.info('logging in...')
+        login_page.click_login()
+        dashboard_page = DashboardPage(browser)
+        assert browser.current_url == dashboard_page.url
+        logger.info('in dashboard page...')
+
+    def test_login_with_password_in_upper_case(self, browser):
+        """
+        The function tests that a user can not log in successfully with a valid username and changed password in upper
+        case.
+        :param browser: fixture
+        :return: None
+        """
+        login_page = LoginPage(browser)
+        logger.info('filling username and password in upper case...')
+        login_page.fill_email_and_password(AccountCredentials.EMAIL, AccountCredentials.PASSWORD.upper())
+        logger.info('logging in...')
+        login_page.click_login()
+
+        if browser.current_url == Url.SECURITY_PAGE_URL:
+            logger.info('switching to security page...')
+        else:
+            assert browser.current_url in login_page.url
+            assert login_page.message_box.text == Messages.INCORRECT_LOGIN_MESSAGE
+            logger.info('incorrect username or password...')
+

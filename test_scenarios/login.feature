@@ -107,7 +107,21 @@ Feature: Test that login feature is working normally
 
   Scenario: User can update password by clicking lost password link
     Given I am on the login page
-    When I click lost password
+    When I click lost password link
     Then I am on forget password page
     And I can enter email in the page
     And I can click send instructions button
+
+  Scenario: User can log in successfully with valid email and password if email is changed to upper case
+    Given I am on the login page
+    When I enter valid email in upper case and valid password
+    And I click Login button
+    Then I am on dashboard page
+
+  Scenario: User can not log in with valid username and password if password is changed to upper case
+    Given I am on the login page
+    When I enter valid username and changed password in upper case
+    And I click Login button
+    Then I am still on the login page
+    And I see incorrect username or password message in message box
+    But I might also be on security check page
